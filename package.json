@@ -1,0 +1,27 @@
+{
+  "name": "todo-app-react",
+  "version": "1.0.0",
+  "description": "react redux example",
+  "main": "index.js",
+  "dependencies": {
+    "react-redux": "^7.1.1",
+    "semantic-ui": "^2.4.2"
+  },
+  "devDependencies": {
+    "standard": "^12.0.1"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "test": "standard",
+    "standard": "standard --fix & standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cemkiy/todo-app-react.git"
+  },
+  "author": "cemkiy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cemkiy/todo-app-react/issues"
+  }
+}
