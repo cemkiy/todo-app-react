@@ -3,9 +3,9 @@ export const addTodo = (todo) => ({
   todo
 })
 
-export const setTagsFilter = filter => ({
+export const setTagsFilter = todos => ({
   type: 'SET_TAGS_FILTER',
-  filter
+  todos
 })
 
 export const toggleTodo = (id, status) => ({

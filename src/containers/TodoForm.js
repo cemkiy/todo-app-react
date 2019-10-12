@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addTodo,setTagsFilter } from '../actions'
-import { Button, Form, Input } from 'semantic-ui-react'
+import { Button, Form } from 'semantic-ui-react'
+
+const API = require('../api')
 
 const TodoForm = ({ dispatch }) => {
   let todo = {}
@@ -12,7 +13,8 @@ const TodoForm = ({ dispatch }) => {
         if (!todo.header.value.trim()) {
           return
         }
-        dispatch(addTodo(todo))
+
+        API.postTodo(dispatch, todo)
         todo = {}
       }}
     >
