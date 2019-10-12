@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Button, Icon, Table, Header } from 'semantic-ui-react'
+import Moment from 'react-moment'
+import { Button, Icon, Table, Header, Divider } from 'semantic-ui-react'
 
 const API = require('../api')
 
@@ -24,8 +25,8 @@ class TodoList extends React.Component {
       <Table basic='very' celled collapsing>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell>Status</Table.HeaderCell>
-            <Table.HeaderCell>Tasks</Table.HeaderCell>
+            <Table.HeaderCell><Icon  name='idea' />Status</Table.HeaderCell>
+            <Table.HeaderCell><Icon circular name='sticky note outline' />Tasks</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 
@@ -33,10 +34,15 @@ class TodoList extends React.Component {
           {todos.map(todo =>
             <Table.Row key={todo._id}>
               <Table.Cell>
-                <Button todo={todo} animated='vertical' onClick={this.toggle}>
-                  <Button.Content hidden>Shop</Button.Content>
+
+                <Button todo={todo} animated='vertical' onClick={this.toggle}
+                  color={todo.status=='completed' ? 'green' : 'orange'}
+                >
+                  <Button.Content hidden>
+                    {todo.status=='completed' ? 'incomplete' : 'complete'}
+                  </Button.Content>
                   <Button.Content visible>
-                    <Icon name='shop' />
+                    <Icon name={todo.status=='completed' ? 'check' : 'question'} />
                   </Button.Content>
                 </Button>
               </Table.Cell>
@@ -44,8 +50,12 @@ class TodoList extends React.Component {
                 <Header as='h4' image>
                   <Header.Content>
                     {todo.header}
-                    <Header.Subheader>{todo.description}</Header.Subheader>
-                    <Header.Subheader>{todo.tags}</Header.Subheader>
+                    <Header.Subheader>
+                      (<Moment  fromNow>
+                          {todo.created_at}
+                      </Moment>)<br />
+                      {todo.description}
+                    </Header.Subheader>
                   </Header.Content>
                 </Header>
               </Table.Cell>

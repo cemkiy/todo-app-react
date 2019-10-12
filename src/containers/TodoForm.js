@@ -30,7 +30,7 @@ const TodoForm = ({ dispatch }) => {
         <label>Tags</label>
         <input ref={node => (todo.tags = node)} placeholder='market,fruit,shopping' />
       </Form.Field>
-      <Button type='submit'>Submit</Button>
+      <Button className='primary' type='submit'>Add Todo</Button>
     </Form>
     )
 }

@@ -11,9 +11,13 @@ const store = createStore(reducer, {todos:[]})
 
 render(
   <Provider store={store}>
-    <div>
-      <TodoForm />
-      <TodoList />
+    <div className="ui two column stackable grid">
+      <div className="column">
+        <TodoForm />
+      </div>
+      <div className="column">
+        <TodoList />
+      </div>
     </div>
   </Provider>,
   document.getElementById('root')
