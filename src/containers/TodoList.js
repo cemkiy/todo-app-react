@@ -15,7 +15,9 @@ class TodoList extends React.Component {
   }
 
   toggle = (e, {todo}) => {
-    API.patchTodo(this.props.dispatch, todo._id, todo.status)
+    let status = 'completed'
+    if (todo.status === 'completed') status = 'incompleted'
+    API.patchTodo(this.props.dispatch, todo._id, status)
  }
 
   render() {
@@ -34,17 +36,28 @@ class TodoList extends React.Component {
           {todos.map(todo =>
             <Table.Row key={todo._id}>
               <Table.Cell>
+              {todo.status==='completed' ?
+              <Button todo={todo} animated onClick={this.toggle}
+                color='green'
+              >
+                <Button.Content hidden>
+                  <Icon name='backward' />
+                </Button.Content>
+                <Button.Content visible>
+                  <Icon name='check' />
+                </Button.Content>
+              </Button> :
+              <Button todo={todo} animated onClick={this.toggle}
+                color='orange'
+              >
+                <Button.Content hidden>
+                  <Icon name='check' />
+                </Button.Content>
+                <Button.Content visible>
+                  <Icon name='question' />
+                </Button.Content>
+              </Button>}
 
-                <Button todo={todo} animated='vertical' onClick={this.toggle}
-                  color={todo.status=='completed' ? 'green' : 'orange'}
-                >
-                  <Button.Content hidden>
-                    {todo.status=='completed' ? 'incomplete' : 'complete'}
-                  </Button.Content>
-                  <Button.Content visible>
-                    <Icon name={todo.status=='completed' ? 'check' : 'question'} />
-                  </Button.Content>
-                </Button>
               </Table.Cell>
               <Table.Cell>
                 <Header as='h4' image>

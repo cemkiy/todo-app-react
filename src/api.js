@@ -7,7 +7,7 @@ const axios = require('axios').create({
 })
 
 const getTodos = function (dispatch, filter) {
-  axios.get('/tasks', filter)
+  axios.get('/todos', filter)
     .then(function (response) {
       dispatch(setTagsFilter(response.data))
     })
@@ -17,7 +17,7 @@ const getTodos = function (dispatch, filter) {
 }
 
 const patchTodo = function (dispatch, id, status) {
-  axios.patch('/tasks/' + id, {
+  axios.patch('/todos/' + id, {
     status: status
   })
     .then(function (response) {
@@ -29,10 +29,9 @@ const patchTodo = function (dispatch, id, status) {
 }
 
 const postTodo = function (dispatch, todo) {
-  axios.post('/tasks', {
+  axios.post('/todos', {
     header: todo.header.value,
-    description: todo.description.value,
-    tags: todo.tags.value.split(',')
+    description: todo.description.value
   })
     .then(function (response) {
       dispatch(addTodo(response.data))

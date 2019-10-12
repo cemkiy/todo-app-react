@@ -24,7 +24,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "test": "standard",
+    "test": "standard --fix & standard",
     "standard": "standard --fix & standard"
   },
   "repository": {

@@ -15,7 +15,8 @@ const TodoForm = ({ dispatch }) => {
         }
 
         API.postTodo(dispatch, todo)
-        todo = {}
+        todo.header.value = ''
+        todo.description.value = ''
       }}
     >
       <Form.Field>
@@ -25,10 +26,6 @@ const TodoForm = ({ dispatch }) => {
       <Form.Field>
         <label>Description</label>
         <input ref={node => (todo.description = node)} placeholder='tell us more about todo' />
-      </Form.Field>
-      <Form.Field>
-        <label>Tags</label>
-        <input ref={node => (todo.tags = node)} placeholder='market,fruit,shopping' />
       </Form.Field>
       <Button className='primary' type='submit'>Add Todo</Button>
     </Form>
