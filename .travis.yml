@@ -1,6 +1,8 @@
 language: node_js
 node_js:
-  - "stable"
+  - 10.16.3
+before_script:
+  - npm install -g gulp-cli
 cache:
   directories:
   - node_modules
