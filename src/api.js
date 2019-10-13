@@ -1,8 +1,8 @@
 import { setTagsFilter, toggleTodo, addTodo } from './actions'
 
 const axios = require('axios').create({
-  baseURL: 'http://localhost:8080',
-  timeout: 1000,
+  baseURL: 'https://getir-back-end.herokuapp.com',
+  timeout: 5000,
   headers: { 'Content-Type': 'application/json' }
 })
 

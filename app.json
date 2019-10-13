@@ -1,0 +1,7 @@
+{
+  "name": "todo-app-react",
+  "description": "getir demo",
+  "repository": "https://github.com/cemkiy/todo-app-react",
+  "keywords": ["react", "redux"],
+  "image": "heroku/nodejs"
+}
