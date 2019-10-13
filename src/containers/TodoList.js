@@ -65,7 +65,7 @@ class TodoList extends React.Component {
                     {todo.header}
                     <Header.Subheader>
                       (<Moment  fromNow>
-                          {todo.created_at}
+                          {todo.last_activity_at}
                       </Moment>)<br />
                       {todo.description}
                     </Header.Subheader>
