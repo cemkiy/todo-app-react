@@ -24,8 +24,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "test": "standard --fix & standard",
-    "standard": "standard --fix & standard"
+    "test": "react-scripts test --env=jsdom"
   },
   "repository": {
     "type": "git",
